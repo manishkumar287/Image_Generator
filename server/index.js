@@ -18,11 +18,13 @@ app.get("/", async (req, res) => {
   res.send("Hello From Image_Generator!");
 });
 
+const PORT = process.env.port || 8080
+
 const startServer = async () => {
   try {
     connectDB(process.env.MONGODB_URL);
-    app.listen(8080, () =>
-      console.log("Server has started on post http://localhost:8080")
+    app.listen(PORT, () =>
+      console.log(`Server has started on port ${PORT}`)
     );
   } catch (error) {
     console.log(error);
